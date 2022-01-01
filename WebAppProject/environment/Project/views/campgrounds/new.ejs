@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center; margin: 20px auto;">Create a New CampGround</h1>
+    </div>
+    
+     <div class="row">
+        <div style="width: 30%; margin: 50px auto;">
+            <!--ACTION is the route for the post-->
+            <form action="/campgrounds/new" method="POST">
+        
+                 <!--We use the name instead of our route to grab the data from request.body-->
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="name">
+                </div>
+                <!--this div class form-group gives us some space-->
+                <div class="form-group">
+                     <input class="form-control" type="text" name="image" placeholder="image url">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="description" placeholder="description">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-md btn-primary btn-block">Submit!</button>
+                </div>
+                
+            </form>
+            <a href="/campgrounds">Go back</a>
+        </div> 
+    </div>
+    
+</div>
+
+
+<% include ../partials/footer %>

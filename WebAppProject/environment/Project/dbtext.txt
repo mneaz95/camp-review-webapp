@@ -1,0 +1,25 @@
+//  let connection = mysql.createConnection({
+//      host:'',
+//      port:'',
+//      user:'',
+//      password:'',
+//      database:'',
+     
+//  });
+ 
+ 
+//  connection.connect(function(err){
+//      if(err){
+//          console.error('Databse connection failed: ' + err.stock);
+//          return;
+//      }
+//      console.log('Connected to database');
+//  });
+
+ 
+// var q = 'SELECT * FROM words';
+//     connection.query(q, function(err, results){
+//         if(err) throw err;
+//         console.log(results);
+//         connection.end();
+//     });

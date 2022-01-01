@@ -1,0 +1,82 @@
+<% include ../partials/header %>
+
+
+<div id="contain_campgroundshown" class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">CampReview</p>
+            <div class="list-group">
+                <!--Make the info section active-->
+                <li class="list-group-item active"><%= campground.description %></li>
+                <li class="list-group-item">Info 2</li>
+                <!--<li class="list-group-item">Info 3</li>-->
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-thumbnail" src="<%= campground.image %>">
+                <!--Makes the image full and covers all of div-->
+                <div class="caption-full">
+                    
+                    <h1><a href="/"><%=campground.name%></a></h1>
+                    <p><%= campground.comment %></p>
+                    <p>
+                        <em>Submitted By </em><%= campground.author %>
+                    </p>
+                    
+                    <!--v10 checking if user is logged in, in our case it is-->
+                        <!--campground.author.id.equals(currentUser._id) "currentUser._id"
+                            Does not work right now cause there is no user logged in so nothing shows-->
+                           
+                    <% if(currentUser && campground.userID == currentUser.id){ %> 
+                  
+                        <form id="delete-form" action="/campgrounds/<%= campground.postID %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    <% } %>
+                    
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-danger" href="/campgrounds/<%=campground.postID%>/comments/new">Animal Alert!</a>
+                </div>
+                
+                <hr>
+               
+               <h4 class="float-center">Animal Alert</h4>
+               
+                <% comment.forEach(function(comment){ %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong><%= comment.author %></strong>
+                        
+                        <!--p-tag for the return from sql-->
+                        <p>Confirmed By: <a id="clicks">  </a><%= comment.confirms %></p>
+                        
+                        <span class="float-right">
+                        <!--uncomment the forms to make it a post request-->
+                            <form action="/campgrounds/<%=campground.postID%>" method="POST">
+                                <button class="btn btn-info" type="button " name="confirm" value="<%= comment.commentID %>">Confirm siting!</button>
+                            </form>
+                        </span>
+                        <p>
+                        <%= comment.description %>
+                        </p>
+                    </div>
+                </div>
+                    
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<p>
+    
+</p>
+
+
+
+<% include ../partials/footer %>

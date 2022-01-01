@@ -1,0 +1,16 @@
+pw:
+user:
+
+ON Terminal
+mysql -h <schema>.<hostname> -P <port> -u <username> -p 
+
+commands in Terminal
+-SHOW DATABASES;
+-USE <schema>;
+- SELECT * FROM words;
+- DELETE FROM campGround;
+show tables;
+describe users;
+
+
+  
